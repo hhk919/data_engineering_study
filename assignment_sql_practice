@@ -1,0 +1,27 @@
+#  Monthly Active User 세보기
+
+- 앞서 주어진 두개의 테이블 (raw_data.session_timestamp, raw_data.user_session_channel)을 바탕으로 월별마다 액티브한 사용자들의 수를 카운트한다.
+- 여기서 중요한 점은 세션의 수를 세는 것이 아니라 사용자의 수를 카운트한다는 점이다.
+- 결과는 예를 들면 아래와 같은 식이 되어야 한다:
+  - 2019-05: 400
+  - 2019-06: 500
+  - 2019-07: 600
+  - ...
+
+
+  
+SELECT TO_CHAR(ts,'YYYY-MM') AS year_month, COUNT(DISTINCT userid) monthly_active_user_count 
+FROM adhoc.kyoul_test
+GROUP BY 1
+ORDER BY 1;
+
+
+result : 
+year_month	monthly_active_user_count	
+2019-05	    281	
+2019-06	    459	
+2019-07	    623	
+2019-08	    662	
+2019-09	    639	
+2019-10	    763	
+2019-11	    721	

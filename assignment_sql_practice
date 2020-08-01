@@ -15,6 +15,7 @@ FROM adhoc.kyoul_test
 GROUP BY 1
 ORDER BY 1;
 
+* TO_CHAR(), LEFT()은 STRING을 return하고 DATE_TRUNC(month, ts)는 TIMESTAMP를 return
 
 result : 
 year_month	monthly_active_user_count	
